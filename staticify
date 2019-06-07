@@ -25,6 +25,7 @@ def run(requirements_location):
         requirements_file.write("\n".join(static_requirements))
 
 
-
 if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        raise Exception("No location of requirements.txt given")
     run(sys.argv[1])

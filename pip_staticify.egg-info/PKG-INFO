@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pip-staticify
-Version: 0.1
+Version: 0.2
 Summary: A python package for making your requirements static
 Home-page: https://github.com/bartmachielsen/pip-staticify
 Author: Bart Machielsen
