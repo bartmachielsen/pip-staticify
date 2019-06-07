@@ -6,14 +6,21 @@ import subprocess
 
 def run(requirements_location):
     requirements = subprocess.check_output(["pip", "freeze"]).decode().split("\n")
+    print(requirements)
 
     static_requirements = []
     with open(requirements_location, "r") as requirements_file:
         for line in [line.replace("\n", "") for line in requirements_file.readlines()]:
+            if "[" in line:
+                line = line[:line.index("[")]
+
             if "=" in line:
                 static_requirements.append(line)
             else:
-                found = [f for f in requirements if f.startswith(line)]
+                found = [
+                    f for f in requirements
+                    if f.split("=")[0].lower().replace("-", "_") == line.lower().replace("-", "_")
+                ]
                 if len(found) > 1:
                     raise Exception("Multiple same-name requirements found for: {}".format(line))
                 if len(found) == 0:

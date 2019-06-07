@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='pip-staticify',
-    version='0.2',
+    version='0.3',
     scripts=['staticify'],
     author="Bart Machielsen",
     author_email="bartmachielsen@gmail.com",
